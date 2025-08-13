@@ -9,8 +9,8 @@ class AppStyles {
   );
 
   static const TextStyle bodyText = TextStyle(
-    fontSize: 18,
-    color: AppColors.textColor,
+    fontSize: 20,
+    color: AppColors.primary,
   );
 
 

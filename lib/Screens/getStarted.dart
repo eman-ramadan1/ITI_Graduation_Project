@@ -1,7 +1,8 @@
 
 
-import 'package:coffe_app/Screens/loginPage.dart';
+
 import 'package:coffe_app/core/widgits/custom_bottom.dart';
+import 'package:coffe_app/features/Screens/loginPage.dart';
 import 'package:flutter/material.dart';
 
 class GetStarted extends StatelessWidget {
@@ -33,7 +34,7 @@ class GetStarted extends StatelessWidget {
 
       Navigator.pushReplacement(
         context, 
-        MaterialPageRoute(builder: (context) => Loginpage())
+        MaterialPageRoute(builder: (context) => LoginPage())
       );
     },
   )
