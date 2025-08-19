@@ -1,16 +1,59 @@
-# coffe_app
+# ☕ Coffee App
 
-A new Flutter project.
+Coffee App is a modern Flutter application for managing and purchasing coffee products.  
+It provides a sleek and user-friendly interface with support for **Firebase Authentication**, **Cloud Firestore**, and **Dark/Light Theme Switching**.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features  
 
-A few resources to get you started if this is your first Flutter project:
+### Authentication & User Management
+- 🔐 **Firebase Authentication**: Sign up and log in using email and password.
+- 👤 **User Profile**: View and update user information (name, email, profile picture).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Product & Search
+- 📦 **Product Management**: Display all coffee products stored in Firestore.
+- 🔍 **Search Functionality**: Quickly find products by name or category.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### UI & UX
+- 🌓 **Dark & Light Mode**: Seamlessly switch between dark and light themes.
+- 🎨 **Custom Widgets & UI Components**: Includes `ProfileContainer`, `SmallContainer`, and `AppThemes`.
+
+---
+
+## 📸Liagt_app Screenshots  
+
+| GetStarted| H | Home Page | Profile Page (Dark Mode) |
+|--------------|----------------|------------|--------------------------|
+| ![GettStarted](assets/coffee_app_sceenshots/lightGtstarted.png) | ![SignUp](assets/coffee_app_sceenshots/lightSinUp.png) | ![Home](assets/coffee_app_sceenshots/ightHome.png) | ![coffeeLight](assets/coffee_app_sceenshots/lightCoffee.png) |![lightProfile](assets\coffee_app_sceenshots\lightProfile.png) |
+
+> *Place your screenshots inside `assets/screenshots/` and update the links above.*
+
+---
+
+## 🎥 Demo Video  
+
+[![Watch the demo](assets/screenshots/demo_thumb.png)](https://drive.google.com/your-demo-video-link)  
+
+> *Replace the link with a video on Google Drive or YouTube showing the app in action.*
+
+---
+
+## 🛠 Tech Stack  
+
+- [Flutter](https://flutter.dev/)  
+- [Dart](https://dart.dev/)  
+- [Firebase Authentication](https://firebase.google.com/docs/auth)  
+- [Cloud Firestore](https://firebase.google.com/docs/firestore)  
+- [BLoC State Management](https://bloclibrary.dev/#/)  
+
+---
+
+## ⚡ Quick Start  
+
+1. **Clone the repository**  
+```bash
+git clone https://github.com/your-username/coffee_app.git
+cd coffee_app
+
+
