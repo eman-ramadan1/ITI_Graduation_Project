@@ -1,8 +1,5 @@
 
-
-
 import 'package:coffe_app/Screens/getStarted.dart';
-import 'package:coffe_app/Screens/userProfile.dart';
 import 'package:coffe_app/core/utils/appThemes.dart';
 import 'package:coffe_app/features/auth/cubit/theme_switch_cubit.dart';
 import 'package:flutter/material.dart';

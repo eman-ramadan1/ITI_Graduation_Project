@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:coffe_app/core/widgits/appBar.dart';
 import 'package:coffe_app/core/widgits/continer.dart';
 import 'package:coffe_app/features/auth/cubit/theme_switch_cubit.dart';
 import 'package:coffe_app/features/auth/userProfileData/bloc/user_data_bloc.dart';

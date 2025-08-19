@@ -8,7 +8,7 @@ String? emailValidation(String? email) {
   } else if (!_isEmail(trimmedEmail)) {
     return 'Invalid email format';
   } else {
-    return null; // Valid
+    return null; // Valid empty or not
   }
 }
 

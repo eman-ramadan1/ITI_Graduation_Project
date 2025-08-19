@@ -15,14 +15,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Future<void> _onLoginSubmitted(
       LoginSubmitted event, Emitter<LoginState> emit) async {
-    // 1️⃣ Validate Email
+    // 1️ Validate Email
     final emailError = emailValidation(event.email);
     if (emailError != null) {
       emit(LoginFailureState(error: emailError));
       return;
     }
 
-    // 2️⃣ Validate Password
+    // 2️ Validate Password
     final passwordError = passwordValidation(event.password);
     if (passwordError != null) {
       emit(LoginFailureState(error: passwordError));
@@ -32,19 +32,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(LoginLoadingState());
 
     try {
-      // 3️⃣ Firebase login
+      // 3️ Firebase login
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
               email: event.email, password: event.password);
 
-      final user = credential.user;
+      final user = credential.user; // Get the user from the credential if exit or not
       if (user == null) {
         emit(LoginFailureState(error: "User not found"));
         return;
       }
 
-      // 4️⃣ Check Firestore for user data
-      final snapshot =
+      // 4️ Check Firestore for user data
+      final snapshot =//all data in collection 
           await FirebaseFirestore.instance.collection("users").doc(user.uid).get();
 
       if (!snapshot.exists) {
@@ -52,7 +52,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return;
       }
 
-      emit(LoginSuccessState(email: event.email));
+      emit(LoginSuccessState(email: event.email)); // Emit success state with email
     } on FirebaseAuthException catch (e) {
       emit(LoginFailureState(error: e.message ?? "Login failed"));
     } catch (e) {

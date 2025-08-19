@@ -10,7 +10,7 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();//
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       } else if (state is LoginFailureState) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          
+
                           SnackBar(content: Text(state.error)),
                         );
                       }
@@ -109,6 +109,8 @@ class _LoginPageState extends State<LoginPage> {
                                   email: _emailController.text.trim(),
                                   password: _passwordController.text.trim(),
                                 ),
+
+                                
                               );
                         },
                       );

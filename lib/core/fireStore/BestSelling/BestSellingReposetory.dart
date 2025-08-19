@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coffe_app/core/fireStore/BestSelling/BestSellingModel.dart';
-import 'package:coffe_app/core/fireStore/Breads/BreadsModel.dart';
+
 
 
 class Bestsellingreposetory {
-  final FirebaseFirestore firestore;
+  final FirebaseFirestore firestore;//
 
   Bestsellingreposetory({required this.firestore});
 
@@ -16,17 +16,16 @@ class Bestsellingreposetory {
     });
   }
 
-  Future<void> addBreads(BestsellingModel breads) async {
+  Future<void> addBestSelling(BestsellingModel bestSellers) async {
 // await firestore.collection('SmallPlanets').add(book.toMap());
-final docRef = await firestore.collection('BestSellings').add(breads.toMap());
+final docRef = await firestore.collection('BestSelling').add(bestSellers.toMap());
 
-// حدّث الـ Coffee بالـ id
 await docRef.update({'id': docRef.id});
 
 
   }
 
   Future<void> deleteBestSelling(String id) async {
-    await firestore.collection('BestSellings').doc(id).delete();
+    await firestore.collection('BestSelling').doc(id).delete();
   }
 }

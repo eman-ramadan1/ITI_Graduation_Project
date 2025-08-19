@@ -15,7 +15,7 @@ class BestsellingModel {
     required this.imageUrl,
     this.description='',
   });
-
+///
   factory BestsellingModel.fromMap(Map<String, dynamic> map, String documentId) {
     return BestsellingModel(
       id: documentId,
@@ -30,7 +30,6 @@ class BestsellingModel {
   Map<String, dynamic> toMap() {
     return {
       'name': name,
-      
       'category': category,
       'price': price,
       'imageUrl': imageUrl,

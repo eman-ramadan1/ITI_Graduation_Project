@@ -20,7 +20,7 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
     Emitter<UserProfileState> emit,
   ) async {
     emit(UserProfileLoading());
-
+    ///check if user is logged in
     try {
       final uid = auth.currentUser?.uid;
       if (uid == null) {
@@ -28,13 +28,15 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
         return;
       }
 
+      /// Get user data from Firestore coll 'users'
       final snapshot = await firestore.collection("users").doc(uid).get();
 
       if (!snapshot.exists) {
         emit(UserProfileFailure("User data not found"));
         return;
       }
-
+//
+      /// Emit loaded state with user data
       final data = snapshot.data()!;
       emit(UserProfileLoaded(
         name: data['name'] ?? '',
