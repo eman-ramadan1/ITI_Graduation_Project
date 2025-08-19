@@ -21,21 +21,26 @@ It provides a sleek and user-friendly interface with support for **Firebase Auth
 
 ---
 
-## 📸Liagt_app Screenshots  
+📸 Light App Screenshots  
 
-| GetStarted|SignUp |Home|coffeeLight| Profile Page (Dark Mode) |
-|--------------|----------------|------------|--------------------------|
-| ![GettStarted](assets/coffee_app_sceenshots/lightGtstarted.png) | ![SignUp](assets/coffee_app_sceenshots/lightSinUp.png) | ![Home](assets/coffee_app_sceenshots/ightHome.png) | ![coffeeLight](assets/coffee_app_sceenshots/lightCoffee.png) |![lightProfile](assets\coffee_app_sceenshots\lightProfile.png) |
+| GetStarted | SignUp | Home | Coffee Light | Profile Page (Dark Mode) |
+|------------|--------|------|--------------|--------------------------|
+| [![GetStarted](assets/coffee_app_sceenshots/lightGtstarted.png)](https://example.com/lightGtstarted) 
+| [![SignUp](assets/coffee_app_sceenshots/lightSinUp.png)](https://example.com/lightSinUp) 
+| [![Home](assets/coffee_app_sceenshots/ightHome.png)](https://example.com/ightHome) 
+| [![Coffee Light](assets/coffee_app_sceenshots/lightCoffee.png)](https://example.com/lightCoffee) 
+| [![Light Profile](assets/coffee_app_sceenshots/lightProfile.png)](https://example.com/lightProfile) |
 
 
 
+📸 Dark App Screenshots  
 
-## 📸Dark_app Screenshots  
-
-| GetStarted|login|Home| DarkProfile |
-|--------------|----------------|------------|--------------------------|
-| ![GettStarted](assets/coffee_app_sceenshots/darkGitstarted.png) | ![login](assets/coffee_app_sceenshots/darkLogin.png) | ![Home](assets/coffee_app_sceenshots/darkHome.png)  |![DarkProfile](assets/coffee_app_sceenshots/darkProfile.png) |
-
+| GetStarted | Login | Home | Dark Profile |
+|------------|-------|------|--------------|
+| [![GetStarted](assets/coffee_app_sceenshots/darkGitstarted.png)](https://example.com/darkGitstarted) 
+| [![Login](assets/coffee_app_sceenshots/darkLogin.png)](https://example.com/darkLogin) 
+| [![Home](assets/coffee_app_sceenshots/darkHome.png)](https://example.com/darkHome) 
+| [![Dark Profile](assets/coffee_app_sceenshots/darkProfile.png)](https://example.com/darkProfile) |
 
 > *Place your screenshots inside `assets/screenshots/` and update the links above.*
 
