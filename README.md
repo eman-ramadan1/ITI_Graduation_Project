@@ -23,9 +23,19 @@ It provides a sleek and user-friendly interface with support for **Firebase Auth
 
 ## 📸Liagt_app Screenshots  
 
-| GetStarted| H | Home Page | Profile Page (Dark Mode) |
+| GetStarted|SignUp |Home|coffeeLight| Profile Page (Dark Mode) |
 |--------------|----------------|------------|--------------------------|
 | ![GettStarted](assets/coffee_app_sceenshots/lightGtstarted.png) | ![SignUp](assets/coffee_app_sceenshots/lightSinUp.png) | ![Home](assets/coffee_app_sceenshots/ightHome.png) | ![coffeeLight](assets/coffee_app_sceenshots/lightCoffee.png) |![lightProfile](assets\coffee_app_sceenshots\lightProfile.png) |
+
+
+
+
+## 📸Dark_app Screenshots  
+
+| GetStarted|login|Home| DarkProfile |
+|--------------|----------------|------------|--------------------------|
+| ![GettStarted](assets/coffee_app_sceenshots/darkGitstarted.png) | ![login](assets/coffee_app_sceenshots/darkLogin.png) | ![Home](assets/coffee_app_sceenshots/darkHome.png)  |![DarkProfile](assets/coffee_app_sceenshots/darkProfile.png) |
+
 
 > *Place your screenshots inside `assets/screenshots/` and update the links above.*
 
@@ -47,13 +57,6 @@ It provides a sleek and user-friendly interface with support for **Firebase Auth
 - [Cloud Firestore](https://firebase.google.com/docs/firestore)  
 - [BLoC State Management](https://bloclibrary.dev/#/)  
 
----
-
-## ⚡ Quick Start  
-
-1. **Clone the repository**  
-```bash
-git clone https://github.com/your-username/coffee_app.git
-cd coffee_app
+-
 
 
