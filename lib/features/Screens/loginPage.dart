@@ -1,4 +1,4 @@
-import 'package:coffe_app/core/utils/appColor.dart';
+import 'package:coffe_app/bottomnBar.dart';
 import 'package:coffe_app/core/utils/textStyle.dart';
 import 'package:coffe_app/core/widgits/custom_bottom.dart';
 import 'package:coffe_app/features/Screens/signUpPage.dart';
@@ -14,7 +14,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -30,139 +29,118 @@ class _LoginPageState extends State<LoginPage> {
     return BlocProvider(
       create: (_) => LoginBloc(),
       child: Scaffold(
-        backgroundColor: AppColors.background,
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Form(
-              key: _formKey,
-              child: BlocConsumer<LoginBloc, LoginState>(
-                //
-                listener: (context, state) {
-                  if (state is LoginLoadingState) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Logging in...')),
-                    );
-                  } else if (state is LoginSuccessState) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Welcome ${state.email}')),
-                    );
-                  } else if (state is LoginFailureState) {
-                    ScaffoldMessenger.of(
-                      context,
-                    ).showSnackBar(SnackBar(content: Text(state.error)));
-                  }
-                },
-                builder: (context, state) {
-                  return Column(
+          child: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  /// Logo + Title
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-
-                        children: [
-                          SizedBox(width: 60),
-                          Image.asset('assets/loginPageLogo.png'),
-
-                          Padding(
-                            padding: const EdgeInsets.only(top: 40),
-                            child: Text(
-                              'login',
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primary,
-                                fontFamily: 'Borel',
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(height: 32),
-
-                      // Email
-                      TextFormField(
-                        controller: _emailController,
-                        decoration: const InputDecoration(
-                          labelText: 'Email',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12.0),
-                            ),
-                          ),
+                      Image.asset('assets/loginPageLogo.png', height: 60),
+                      const SizedBox(width: 12),
+                      Text(
+                        'Login',
+                        style: AppStyles.heading(context).copyWith(
+                          fontSize: 40,
+                          fontFamily: 'Borel',
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Enter your email';
-                          }
-                          return null;
-                        },
                       ),
-                      const SizedBox(height: 20),
+                    ],
+                  ),
+                  const SizedBox(height: 40),
 
-                      // Password
-                      TextFormField(
-                        controller: _passwordController,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12.0),
-                            ),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Enter your password';
-                          }
-                          return null;
-                        },
+                  /// Email
+                  TextFormField(
+                    controller: _emailController,
+                    style: AppStyles.bodyText(context),
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: AppStyles.bodyText(context),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      const SizedBox(height: 24),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
 
-                      CustomBottom(
+                  /// Password
+                  TextFormField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    style: AppStyles.bodyText(context),
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: AppStyles.bodyText(context),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+
+                  /// BlocConsumer for login
+                  BlocConsumer<LoginBloc, LoginState>(
+                    listener: (context, state) {
+                      if (state is LoginSuccessState) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (_) => MainLayout()),
+                        );
+                      } else if (state is LoginFailureState) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          
+                          SnackBar(content: Text(state.error)),
+                        );
+                      }
+                    },
+                    builder: (context, state) {
+                      if (state is LoginLoadingState) {
+                        return const CircularProgressIndicator();
+                      }
+                      return CustomBottom(
                         text: 'Login',
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            context.read<LoginBloc>().add(
-                              LoginSubmitted(
-                                email: _emailController.text.trim(),
-                                password: _passwordController.text.trim(),
-                              ),
-                            );
-
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginPage(),
-                              ),
-                            );
-                          }
+                          context.read<LoginBloc>().add(
+                                LoginSubmitted(
+                                  email: _emailController.text.trim(),
+                                  password: _passwordController.text.trim(),
+                                ),
+                              );
                         },
-                      ),
-                      const SizedBox(height: 20),
-                      // Sign Up Link
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Don\'t have an account?', style: AppStyles.bodyText),
-                          TextButton(
-                            onPressed: () {
-                              // Navigate to Sign Up page
-                              Navigator.pushReplacement(context, MaterialPageRoute(
-                                builder: (context) => SignUpPage(),////
-                              ));
-                            },
-                            child: Text('Sign Up', style: AppStyles.bodyText),
-                          ),
-                        ],
-                      ),
+                      );
+                    },
+                  ),
 
+                  const SizedBox(height: 20),
+
+                  /// Sign up link
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don't have an account?",
+                          style: AppStyles.bodyText(context)),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (_) => SignUpPage()),
+                          );
+                        },
+                        child: Text(
+                          'Sign Up',
+                          style: AppStyles.bodyText(context).copyWith(
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
                     ],
-                  );
-                },
+                  ),
+                ],
               ),
             ),
           ),
@@ -171,38 +149,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      // Login Button
-                      // ElevatedButton(
-                      //   style: ElevatedButton.styleFrom(
-                      //     backgroundColor: AppColors.primary,
-                      //     padding: const EdgeInsets.symmetric(
-                      //         horizontal: 40, vertical: 12),
-                      //   ),
-                      //   onPressed: () {
-                      //     if (_formKey.currentState!.validate()) {
-                      //       context.read<LoginBloc>().add(
-                      //             LoginSubmitted(
-                      //               email: _emailController.text.trim(),
-                      //               password: _passwordController.text.trim(),
-                      //             ),
-                      //           );
-                      //     }
-                      //   },
-                      //   child: const Text(
-                      //     'Login',
-                      //     style: TextStyle(fontSize: 16, color: Colors.white),
-                      //   ),
-                      // ),

@@ -12,7 +12,7 @@ class CustomBottom extends StatelessWidget {
     return Container(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
+          backgroundColor: AppColors.elevatedButtonColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -22,7 +22,7 @@ class CustomBottom extends StatelessWidget {
           onPressed: onPressed, // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Loginpage()));
         
 
-        child: Text(text, style: AppStyles.buttonText),
+        child: Text(text, style: AppStyles.buttonText(context)),
       ),
     );
   }

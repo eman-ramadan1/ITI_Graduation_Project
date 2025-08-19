@@ -21,7 +21,8 @@ class GetStarted extends StatelessWidget {
        radius: 110,
 
 
-  child:CircleAvatar
+  child:
+  CircleAvatar
     (
             radius: 150,
             backgroundImage: AssetImage('assets/coffeeLogo.png'),

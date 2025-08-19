@@ -1,28 +1,35 @@
-import 'package:coffe_app/core/utils/appColor.dart';
 import 'package:flutter/material.dart';
 
 class AppStyles {
-  static const TextStyle heading = TextStyle(
-    fontSize: 22,
-    fontWeight: FontWeight.bold,
-    color: AppColors.textColor,
-  );
+  static TextStyle heading(BuildContext context) {
+    return TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+      color: Theme.of(context).textTheme.bodyLarge?.color,
+      fontFamily: 'Arial'
+    );
+  }
 
-  static const TextStyle bodyText = TextStyle(
-    fontSize: 20,
-    color: AppColors.primary,
-  );
+  static TextStyle bodyText(BuildContext context) {
+    return TextStyle(
+      fontSize: 20,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
+    );
+  }
 
+  static TextStyle descText(BuildContext context) {
+    return TextStyle(
+      fontSize: 16,
+      color: Theme.of(context).textTheme.bodySmall?.color ??
+          Theme.of(context).textTheme.bodyMedium?.color,
+    );
+  }
 
-  
-  static const TextStyle descText = TextStyle(
-    fontSize: 16,
-    color: AppColors.textColor,
-  );
-
-  static const TextStyle buttonText = TextStyle(
-     color: AppColors.secondary,
-  fontSize: 18,
-  fontWeight: FontWeight.bold,
-  );
+  static TextStyle buttonText(BuildContext context) {
+    return TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: Theme.of(context).colorScheme.onPrimary,
+    );
+  }
 }
